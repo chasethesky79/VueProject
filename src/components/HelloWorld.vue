@@ -1,88 +1,25 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
-        >vue-cli documentation</a
-      >.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
+    <h1>Starting with directives</h1>
+    <h2>{{ name }}</h2>
+    <h3>{{ age > 10 ? `Older than 10` : `Younger than 10` }}</h3>
+    <a :href="url" target="_blank">Disney</a>
+    <h3 v-show="true">Hello</h3>
+    <button v-on:click="clicked">Click Me</button>
+    <form action>
+      <input v-on:keyup.enter="submit" type="`text`" />
+      <button v-on:click.prevent="clicked">Submit</button>
+      <h3>{{ counter }}</h3>
+      <div v-if="counter % 2 === 0">Even</div>
+      <div v-else>Odd</div>
+      <div v-for="person in people" :key="person.name">
+        <h3>{{ person.name }}</h3>
+        <span> {{ person.age }}</span>
+        <ul>
+          <li v-for="value in person" :key="value.name">{{ value }}</li>
+        </ul>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -91,6 +28,29 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String,
+  },
+  data() {
+    return {
+      name: `This is hello`,
+      age: 35,
+      url: "https://www.disney.com",
+      info: `<div><h1>From Date</h1></div`,
+      counter: 0,
+      people: [
+        { name: "Bharath", age: 20 },
+        { name: "Jill", age: 25 },
+        { name: "John", age: 27 },
+      ],
+    };
+  },
+  methods: {
+    clicked(event) {
+      console.log(`CLICKED ${event.target.value}`);
+      this.counter++;
+    },
+    submit() {
+      alert("Enter");
+    },
   },
 };
 </script>
