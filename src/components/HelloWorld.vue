@@ -1,23 +1,10 @@
 <template>
-  <div class="hello">
-    <h1>Starting with directives</h1>
-    <h2>{{ name }}</h2>
-    <h3>{{ age > 10 ? `Older than 10` : `Younger than 10` }}</h3>
-    <a :href="url" target="_blank">Disney</a>
-    <h3 v-show="true">Hello</h3>
-    <button v-on:click="clicked">Click Me</button>
-    <form action>
-      <input v-on:keyup.enter="submit" type="`text`" />
-      <button v-on:click.prevent="clicked">Submit</button>
-      <h3>{{ counter }}</h3>
-      <div v-if="counter % 2 === 0">Even</div>
-      <div v-else>Odd</div>
-      <div v-for="person in people" :key="person.name">
-        <h3>{{ person.name }}</h3>
-        <span> {{ person.age }}</span>
-        <ul>
-          <li v-for="value in person" :key="value.name">{{ value }}</li>
-        </ul>
+  <div class="input-form">
+    <h2 class="ui header">Project Twitter Box Client</h2>
+    <form class="ui form">
+      <div class="form-input">
+        <input ref="newItem" type="text" placeholder="Add an item!" />
+        <button class="ui button">Submit</button>
       </div>
     </form>
   </div>
@@ -70,5 +57,24 @@ li {
 }
 a {
   color: #42b983;
+}
+.form-input {
+  display: flex;
+  justify-content: center;
+}
+.form-input > * {
+  margin: 20px 20px 20px 20px;
+}
+.form-input input {
+  max-width: 500px;
+}
+.form-input {
+  margin: 20px 20px 20px 20px;
+}
+form {
+  margin: auto;
+  width: 50%;
+  background-color: aquamarine;
+  border: 1px solid;
 }
 </style>
