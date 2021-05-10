@@ -41,7 +41,7 @@ export default {
       event.preventDefault();
     },
     onKeyDown(event) {
-      if (this.newItem.length >= 280) {
+      if (this.newItem.length > 280) {
         event.preventDefault();
         return;
       }
