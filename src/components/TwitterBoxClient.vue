@@ -27,10 +27,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
-  props: {
-    msg: String,
-  },
+  name: "TwitterBoxClient",
   data() {
     return {
       newItem: "",
@@ -87,5 +84,8 @@ form,
 }
 form {
   margin-bottom: 30px;
+}
+input {
+  text-align: center;
 }
 </style>
