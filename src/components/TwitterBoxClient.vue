@@ -65,15 +65,13 @@ a {
 .form-input {
   display: flex;
   justify-content: center;
+  margin: 20px 20px 20px 20px;
 }
 .form-input > * {
   margin: 20px 20px 20px 20px;
 }
 .form-input input {
   max-width: 500px;
-}
-.form-input {
-  margin: 20px 20px 20px 20px;
 }
 form,
 .display-section {
