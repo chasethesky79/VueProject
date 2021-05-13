@@ -8,7 +8,7 @@
           type="text"
           placeholder="Enter text!"
           :maxlength="characters"
-           class="w-64 h-20 p-4"
+          class="w-64 h-20 p-4"
         />
         <button
           class="bg-blue-400 rounded-md w-20 text-white h-12 disabled:opacity-75"
