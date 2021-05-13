@@ -3,13 +3,18 @@
     <h2>Project Twitter Box Client</h2>
     <form @submit="submitForm" class="ui form">
       <div class="form-input">
-        <input
+        <textarea
           v-model="newItem"
           type="text"
           placeholder="Enter text!"
-          @keydown="onKeyDown"
+          :maxlength="characters"
+           class="w-64 h-20 p-4"
         />
-        <button class="ui button">Submit</button>
+        <button
+          class="bg-blue-400 rounded-md w-20 text-white h-12 disabled:opacity-75"
+        >
+          Submit
+        </button>
       </div>
     </form>
     <div v-if="items.length > 0" class="display-section">
@@ -32,6 +37,7 @@ export default {
     return {
       newItem: "",
       items: [],
+      characters: 280,
     };
   },
   methods: {
@@ -39,12 +45,6 @@ export default {
       this.items = [...this.items, this.newItem];
       this.newItem = "";
       event.preventDefault();
-    },
-    onKeyDown(event) {
-      if (this.newItem.length > 280) {
-        event.preventDefault();
-        return;
-      }
     },
   },
 };
