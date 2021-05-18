@@ -15,14 +15,16 @@
         >
           Submit
         </button>
+        <span>Character remaning {{ maxC }}</span>
       </div>
     </form>
+    <button @click="change">Change Me</button> {{ fullName }}
     <div v-if="items.length > 0" class="display-section">
       <ul>
         <li v-for="item in items" :key="item">
-          {{ item }},
+          {{ item }}
           <span style="margin-left: 10px"
-            >No of characters remaining: {{ 280 - item.length }}</span
+            >No of characters remaining: {{ maxC }},</span
           >
         </li>
       </ul>
@@ -38,13 +40,23 @@ export default {
       newItem: "",
       items: [],
       characters: 280,
+      firstName: `Bharath`,
+      lastName: `Seshadri`,
     };
+  },
+  computed: {
+    maxC() {
+      return this.characters - this.newItem.length;
+    },
   },
   methods: {
     submitForm(event) {
       this.items = [...this.items, this.newItem];
       this.newItem = "";
       event.preventDefault();
+    },
+    change() {
+      this.firstName = "Bob";
     },
   },
 };
